@@ -1,26 +1,35 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 const TASK_POOL = {
   Easy: [
     "Drink exactly three measured sips of water right now.",
     "Open a tab on your screen and type 'The Will of the City' exactly 15 times.",
-    "Take a pen and draw a single, small dot on the back of your left hand."
+    "Take a pen and draw a single, small dot on the back of your left hand.",
+    "Touch your nose with your left index finger while keeping your right eye closed for 10 seconds.",
+    "Point your phone camera out a window, take a photo of the sky, and name it 'Causality.jpg'."
   ],
   Medium: [
     "Balance a spoon or pencil perfectly on your nose or forehead for 10 seconds.",
     "Turn off every single light source in your immediate room for 2 minutes.",
-    "Find a book nearby, open it to page 45, and record the first word."
+    "Find a book nearby, open it to page 45, and record the first word.",
+    "Arrange 5 small objects (coins, keys, pens) on your desk in a perfect straight line.",
+    "Sit on the floor cross-legged and stack exactly three empty cans or mugs on top of each other."
   ],
   Hard: [
     "Send the single character 'Ω' to the 3rd person on your direct messages without context.",
     "Place your shoes perfectly upside down right outside your bedroom door frame.",
-    "Do 20 jumping jacks completely silently so nobody else hears you."
+    "Do 20 jumping jacks completely silently so nobody else hears you.",
+    "Tear a piece of paper into the shape of a triangle. Write your first name inside it backwards.",
+    "Hold a single piece of ice in your bare palm until it completely melts into water."
   ],
   Insanity: [
     "Stare directly into the glowing blue eye of the Index Logo above for 60 seconds without blinking.",
     "Write down your deepest, darkest secret on a piece of paper, shred it completely, and discard it.",
-    "Stand completely frozen like a stone statue for 3 minutes. Do not move a single muscle except to breathe."
+    "Stand completely frozen like a stone statue for 3 minutes. Do not move a single muscle except to breathe.",
+    "Go into a completely pitch-black room, turn your back to the door, and whisper 'Esther' three times.",
+    "Do not check any social media, messages, or notifications for the next 30 minutes straight after closing this app."
   ]
 };
 
@@ -126,7 +135,16 @@ export default function IndexTerminal() {
       <div style={{ maxWidth: '650px', margin: '0 auto', textAlign: 'center' }}>
         
         {/* Referencing verbatim file "image_41cc4a.png" per instructions */}
-        <img src="/image_41cc4a.png" alt="The Index Logo" style={{ width: '120px', height: '140px', margin: '20px auto', display: 'block', filter: 'drop-shadow(0 0 10px #64b5f6)' }} />
+        <div style={{ margin: '20px auto', display: 'block', width: '120px', height: '140px', position: 'relative' }}>
+          <Image 
+            src="/image_41cc4a.png" 
+            alt="The Index Logo" 
+            width={120} 
+            height={140} 
+            style={{ filter: 'drop-shadow(0 0 10px #64b5f6)' }}
+            priority
+          />
+        </div>
 
         <div style={{ backgroundColor: '#0d1321', border: '1px solid #64b5f6', padding: '20px', borderRadius: '4px', textAlign: 'left', minHeight: '400px', whiteSpace: 'pre-wrap', boxShadow: '0 0 15px rgba(100, 181, 246, 0.15)' }}>
           {gameState === 'validating' ? "============================================================\n[SYSTEM]: TRANSMITTING DATA TO THE WEAVER CORE...\n============================================================" : displayText}
